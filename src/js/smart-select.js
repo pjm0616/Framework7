@@ -119,6 +119,7 @@ app.smartSelectOpen = function (smartSelect, reLayout) {
         return;
     }
     var values = [];
+    var valueIndices = {};
     var id = (new Date()).getTime();
     var inputType = select.multiple ? 'checkbox' : 'radio';
     var inputName = inputType + '-' + id;
@@ -166,6 +167,7 @@ app.smartSelectOpen = function (smartSelect, reLayout) {
             inputName: inputName,
             material: app.params.material
         });
+        valueIndices[option[0].value] = i;
     }
 
 
@@ -395,6 +397,10 @@ app.smartSelectOpen = function (smartSelect, reLayout) {
             container.once(openIn === 'popup' || openIn === 'picker' ? 'closed': 'pageBeforeRemove', function () {
                 if (virtualListInstance && virtualListInstance.destroy) virtualListInstance.destroy();
             });
+            var selectedIdx = (valueIndices[select.value] || 0) - 2;
+            if (selectedIdx > 0) {
+                virtualListInstance.scrollToItem(selectedIdx);
+            }
         }
         if (maxLength) {
             checkMaxLength(container);
