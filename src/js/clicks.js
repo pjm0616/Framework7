@@ -321,7 +321,7 @@ app.initClickEvents = function () {
             else view.router.load(options);
         }
     }
-    $(document).on('click', 'a, .open-panel, .close-panel, .panel-overlay, .modal-overlay, .popup-overlay, .swipeout-delete, .swipeout-close, .close-popup, .open-popup, .open-popover, .open-login-screen, .close-login-screen .smart-select, .toggle-sortable, .open-sortable, .close-sortable, .accordion-item-toggle, .close-picker, .picker-modal-overlay', handleClicks);
+    $(document).on('click', '.f7-app-root a, .open-panel, .close-panel, .panel-overlay, .modal-overlay, .popup-overlay, .swipeout-delete, .swipeout-close, .close-popup, .open-popup, .open-popover, .open-login-screen, .close-login-screen .smart-select, .toggle-sortable, .open-sortable, .close-sortable, .accordion-item-toggle, .close-picker, .picker-modal-overlay', handleClicks);
     if (app.params.scrollTopOnNavbarClick || app.params.scrollTopOnStatusbarClick) {
         $(document).on('click', '.statusbar-overlay, .navbar .center', handleScrollTop);
     }
